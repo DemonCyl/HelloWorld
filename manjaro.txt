@@ -1,0 +1,210 @@
+设置硬件时间
+sudo hwclock --systohc
+ntpdate -u ntp.api.bz
+https://cloud.tencent.com/developer/article/1444268
+
+# i3status.conf
+/etc/i3status.conf
+
+# conky
+/usr/shart/conky/ 路径
+
+/usr/bin/start_conky_maia 修改界面
+
+# 换源
+sudo pacman-mirrors -i -c China -m rank
+
+#更新系统
+sudo pacman -Syyu
+
+# 安装
+sudo pacman -S yay
+
+yay -S google-chrome  feh  
+sudo pacman -S netease-cloud-music
+
+#壁纸
+feh --bg-fill /usr/share/backgrounds/xxx.jpg &
+自动切换壁纸
+脚本：
+#!/bin/zsh
+while true; do
+	feh --bg-fill --randomize /home/zero/Pictures/*
+	sleep 30m
+done
+exec_always --no-startup-id /../wallpaper.sh
+
+#Conky_maia 乱码
+yay -S wqy-bitmapfont
+yay -S wqy-zenhei
+sudo vim /usr/share/conky/conky_maia
+font 替换成 WenQuanYi Zenhei
+
+#输入法 安装fcitx5（输入法框架）
+yay -S fcitx5-im
+
+#配置fcitx5的环境变量：
+vim ~/.pam_environment
+
+GTK_IM_MODULE DEFAULT=fcitx
+QT_IM_MODULE  DEFAULT=fcitx
+XMODIFIERS    DEFAULT=\@im=fcitx
+SDL_IM_MODULE DEFAULT=fcitx
+
+#安装fcitx5-rime（输入法引擎）
+yay -S fcitx5-rime
+
+#安装rime-cloverpinyin（输入方案）
+yay -S rime-cloverpinyin
+
+如果出现问题可能还需要做下面这步：
+yay -S base-devel
+
+yay -S fcitx5-pinyin-zhwiki-rime
+
+#创建并写入rime-cloverpinyin的输入方案：
+git clone https://github.com/rime/rime-double-pinyin.git
+cd rime-double-pinyin/
+sudo cp *.yaml /usr/share/rime-data/
+
+vim ~/.local/share/fcitx5/rime/default.custom.yaml
+内容为：
+patch:
+  "menu/page_size": 8
+  schema_list:
+    - schema: clover
+    - schema: double_pinyin        # 自然碼雙拼
+    - schema: double_pinyin_mspy   # 微軟雙拼
+    - schema: double_pinyin_abc    # 智能ABC雙拼
+    - schema: double_pinyin_flypy  # 小鶴雙拼
+
+#美化
+yay -S fcitx5-material-color
+修改配置文件 ~/.config/fcitx5/conf/classicui.conf：
+# 垂直候选列表
+Vertical Candidate List=False
+
+# 按屏幕 DPI 使用
+PerScreenDPI=True
+
+# Font (设置成你喜欢的字体)
+Font="Smartisan Compact CNS 13"
+
+# 主题
+#Theme=Material-Color-Pink
+#Theme=Material-Color-Blue
+#Theme=Material-Color-Brown
+#Theme=Material-Color-DeepPurple
+#Theme=Material-Color-Indigo
+#Theme=Material-Color-Red
+#Theme=Material-Color-Teal
+#Theme=Material-Color-Black
+Theme=Material-Color-Orange
+#Theme=Material-Color-SakuraPink
+
+# 修改picom 透明
+./.config/picom.conf
+inactive-opacity = 0.6
+active-opacity = 0.85
+
+# rofi启动器
+yay -S rofi
+配置文件
+mkdir -p ~/.config/rofi
+rofi -dump-config > ~/.config/rofi/config.rasi
+show-icons: true;
+
+修改 .i3/config
+bindsym $mod+d exec rofi -show drun
+bindsym $mod+Tab exec --no-startup-id rofi -show window
+
+# 重新安装VIM
+
+# oh-my-zsh
+chsh -s /bin/zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+vim ~/.zshrc
+ZSH_THEME="agnoster"
+plugins=(
+  git
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+)
+source $ZSH/oh-my-zsh.sh
+
+eval $(thefuck --alias)
+
+
+安装zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
+安装zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
+
+增加主题  
+https://github.com/zakaziko99/agnosterzak-ohmyzsh-theme  agnosterzak.zsh-theme
+
+# 安装 thefuck
+yay -S thefuck
+配置 .zshrc
+
+# 安装WPS
+yay -S wps-offic ttf-wps-fonts wps-office-mui-zh-cn
+
+# 安装VSCode
+yay -S visual-studio-code-bin
+
+
+# 代理
+cd && mkdir clash
+https://github.com/Dreamacro/clash/releases
+
+终端 cd 到 Clash 二进制文件所在的目录，执行
+wget -O config.yml https://rxl-nc.xyz/link/wH73GGpxOb1vikck?clash=1&log-level=info
+
+./clash -d .
+
+# 配置网页
+http://clash.razord.top/#/proxies
+
+sudo vim /etc/environment
+http_proxy="http://127.8.8.1:7890"
+https_proxy="http://127.8.8.1:7890"
+
+i3/config 配置自启动
+exec_always /xxx/clash -d /xxx/ &
+####
+
+
+# unity 3D
+sudo pacman -S mono dotnet-sdk dotnet-runtime
+
+
+# 系统工具
+yay -S htop  lolcat  cmatrix  neofecth
+
+
+# mysql
+yay -S mysql
+sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+
+安装微信
+ yay -S deepin-wine-wechat
+切换到deepin-wine
+ /opt/apps/com.qq.weixin.deepin/files/run.sh -d
+
+
+# 系统备份
+yay -S timeshift
+
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws5 "5:"
+set $ws6 "6:"
+set $ws7 "7:"
+set $ws8 "8:"
+set $ws9 "9:"
+set $ws10 "10:"
