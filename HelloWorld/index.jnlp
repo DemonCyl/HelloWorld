@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- JNLP File for Notepad -->
+
+<jnlp spec="1.0+" codebase="http://pegabase.ch.casetekcorp.com:8088/PEGAMES/" >
+	<information>
+		<title>PEGA MES System  --pegabase.ch.casetekcorp.com</title>
+		<vendor>PEGA MES System Dept. William Tsai</vendor>
+		<description>PEGA MES System  --pegabase.ch.casetekcorp.com</description>
+		<homepage href="http://pegabase.ch.casetekcorp.com:8088"/>
+		<description kind="short">PEGA MES</description>
+		<offline-allowed/>
+	</information>
+	<offline-allowed/>
+	<security>
+		<all-permissions/>
+	</security>
+	<resources>
+		<jar href="PegaBaseClient.jar"/>
+		<jar href="5_MES_SFIS_Client.jar"/>
+		<jar href="commons-logging-1.1.jar"/>
+		<jar href="jcommon-1.0.16.jar"/>
+		<jar href="jfreechart-1.0.13.jar"/>
+		<jar href="jfreechart-1.0.13-experimental.jar"/>
+		<jar href="jfreechart-1.0.13-swt.jar"/>
+		<!--<jar href="commons-logging-1.0.4.jar"/>-->
+		<!--<jar href="log4j-1.2.8.jar"/>-->
+		<jar href="com.springsource.net.sf.cglib-2.2.0.jar"/>
+		<jar href="javabase64-1.3.1.jar"/>
+		<jar href="ZXing-core-3.2.1.jar"/>
+		<!--<jar href="javax.wsdl_1.6.2.v201012040545.jar"/>-->
+		<!--<jar href="org.apache.commons.logging_1.1.1.v201101211721.jar"/>-->
+		<!--<jar href="axis2-transport-http-1.6.2.jar"/>
+		<jar href="neethi-3.0.2.jar"/>
+		<jar href="axis2-transport-local-1.6.2.jar"/>
+		<jar href="commons-httpclient-3.1.jar"/>
+		<jar href="httpcore-4.0.jar"/>
+		<jar href="commons-codec-1.3.jar"/>-->
+		<jar href="commons-discovery-0.2.jar"/>
+		<jar href="GotoQMBEc.jar"/>
+		<jar href="iText-5.0.3.jar"/>
+		<!--<jar href="commons-logging.jar"/>-->
+		<jar href="jaxrpc.jar"/>
+		<jar href="saaj.jar"/>
+		<jar href="webserviceutils.jar"/>
+		<!--<jar href="wsdl4j.jar"/>-->
+		<jar href="wsdl4j-1.5.1.jar"/>
+		<jar href="axis.jar"/>
+		<jar href="jchigrid.jar"/>
+		<jar href="jcdatasource.jar"/>
+		<jar href="jctable.jar"/>
+		<jar href="jai_codec.jar"/>
+		<jar href="microba-0.4.4.2.jar"/>
+		<jar href="easybar.jar"/>
+		<jar href="itext-1.3.1.jar"/>
+		<jar href="iTextAsian.jar"/>
+		<jar href="activation.jar"/>
+		<jar href="mail.jar"/>
+		<jar href="j3dcore.jar"/>
+		<jar href="j3dutils.jar"/>
+		<jar href="vecmath.jar"/>
+		<jar href="comm.jar"/>
+		<jar href="classes12.jar"/>
+		<jar href="jxl.jar"/>
+		<jar href="javassist-3.10.0.jar"/>
+		<jar href="customizer.jar"/>
+		<jar href="jmf.jar"/>
+		<jar href="mediaplayer.jar"/>
+		<jar href="multiplayer.jar"/>
+		
+		<jar href="log4j-api-2.11.0.jar"/>
+		<jar href="log4j-core-2.11.0.jar"/>
+		<jar href="dom4j-1.6.1.jar"/>
+		<jar href="jaxen-1.1.6.jar"/>
+		
+		<jar href="poi-3.14-20160307.jar"/>
+		<jar href="poi-ooxml-3.14-20160307.jar"/>
+		<jar href="poi-ooxml-schemas-3.14-20160307.jar"/>
+		
+		<jar href="xmlbeans-2.6.0.jar"/>
+		<j2se version="1.5+" href="http://java.sun.com/products/autodl/j2se"  initial-heap-size="500m" max-heap-size="1024m"/>
+	</resources>
+	<application-desc main-class="base.client.ui.GeneralUI">
+		<argument>http://pegabase.ch.casetekcorp.com:8088/PEGAMES/</arguement><!-- code base , 第一次登入所連結的URL -->
+		<argument>SUBCOMPANY_OID:3FC0955A8EF23408E05363F4A2-31276</arguement>
+	</application-desc>
+</jnlp>
+
