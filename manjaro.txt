@@ -177,10 +177,6 @@ exec_always /xxx/clash -d /xxx/ &
 ####
 
 
-# unity 3D
-sudo pacman -S mono dotnet-sdk dotnet-runtime
-
-
 # 系统工具
 yay -S htop  lolcat  cmatrix  neofecth
 
